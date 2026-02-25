@@ -15,7 +15,6 @@ a {
   color: inherit;
 }
 
-/* HEADER */
 header {
   background: black;
   color: white;
@@ -23,7 +22,6 @@ header {
   text-align: center;
 }
 
-/* CONTAINERS */
 .category_list_container,
 .product_list_container {
   display: grid;
@@ -31,11 +29,12 @@ header {
   padding: 2rem;
 }
 
-/* RESPONSIVE GRID */
 .category_list_container {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
 }
-
 .product_list_container {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -94,6 +93,10 @@ header {
   color: white;
   padding: 0.5rem;
   font-size: 0.8rem;
+}
+
+.udsolgt img {
+  opacity: 0.6;
 }
 
 /* PRODUCT PAGE */
