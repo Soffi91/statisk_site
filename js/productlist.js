@@ -1,14 +1,27 @@
 const productContainer = document.querySelector(".product_list_container");
 
-fetch("https://kea-alt-del.dk/t7/api/products")
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get("category");
+
+let url = "https://kea-alt-del.dk/t7/api/products";
+
+if (category) {
+  url = `https://kea-alt-del.dk/t7/api/products?category=${category}&limit=200`;
+  document.querySelector("h1").textContent = category;
+}
+
+fetch(url)
   .then((response) => response.json())
   .then((data) => {
+    productContainer.innerHTML = "";
+
     data.forEach((product) => {
       // Tjek om produkt er udsolgt
       let soldOutClass = product.soldout ? "udsolgt" : "";
 
       // Tjek om produkt er nedsat
       let discountHTML = "";
+
       if (product.discount) {
         const newPrice = Math.round(
           product.price - (product.price * product.discount) / 100,
@@ -23,11 +36,17 @@ fetch("https://kea-alt-del.dk/t7/api/products")
       }
 
       productContainer.innerHTML += `
-        <a href="produkt.html?id=${product.id}" class="product_card ${soldOutClass}">
-          <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="${product.productdisplayname}">
+        <a href="produkt.html?id=${product.id}" 
+           class="product_card ${soldOutClass}">
+          <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" 
+               alt="${product.productdisplayname}">
           <h2>${product.productdisplayname}</h2>
           ${discountHTML}
         </a>
       `;
     });
+  })
+  .catch((error) => {
+    productContainer.innerHTML = "<p>Der opstod en fejl.</p>";
+    console.error(error);
   });
