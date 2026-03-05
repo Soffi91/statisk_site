@@ -8,7 +8,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
 
     let discountHTML = "";
     if (product.discount) {
-      const newPrice = Math.round(
+      const newPrice = Math.ceil(
         product.price - (product.price * product.discount) / 100,
       );
 
@@ -35,7 +35,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
      ${discountHTML}
         ${soldOutClass}
      
-        <button>Køb nu</button>
+        <button class="knap">Køb nu</button>
       </div>`;
   });
 

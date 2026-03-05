@@ -21,13 +21,15 @@ fetch(url)
       let discountHTML = "";
 
       if (product.discount) {
-        const newPrice = Math.round(
+        const newPrice = Math.ceil(
           product.price - (product.price * product.discount) / 100,
         );
 
         discountHTML = `
           <p class="old_price">${product.price} kr</p>
           <p class="discount">${newPrice} kr</p>
+                    <p class="procent">-${product.discount}%</p>
+
         `;
       } else {
         discountHTML = `<p class="price">${product.price} kr</p>`;

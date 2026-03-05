@@ -243,6 +243,28 @@ header {
   font-size: 2rem;
 }
 
+.procent {
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.knap {
+  border-radius: 10px;
+  background-color: #111;
+  color: #fff;
+  padding: 0.5rem;
+  border: none;
+}
+
+.product_info p {
+  margin: 1rem 0;
+}
+
 @media (max-width: 600px) {
   .product_container {
     grid-template-columns: 1fr 1fr;
