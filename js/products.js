@@ -1,3 +1,4 @@
+const productContainer = document.querySelector(".product_container");
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
@@ -26,7 +27,8 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
 
       <div class="product_info">
         <h2>${product.productdisplayname}</h2>
-   
+             <p class="procent">-${product.discount}%</p>
+
      
 
         <p><strong>Type:</strong>${product.articletype}</p>
@@ -34,9 +36,8 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
         <p><strong>Sæson:</strong>${product.season}</p>
      ${discountHTML}
         ${soldOutClass}
+        
      
         <button class="knap">Køb nu</button>
       </div>`;
   });
-
-const productContainer = document.querySelector(".product_container");

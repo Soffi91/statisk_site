@@ -28,7 +28,7 @@ fetch(url)
         discountHTML = `
           <p class="old_price">${product.price} kr</p>
           <p class="discount">${newPrice} kr</p>
-                    <p class="procent">-${product.discount}%</p>
+          <p class="procent">-${product.discount}%</p>
 
         `;
       } else {
