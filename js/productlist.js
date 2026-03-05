@@ -16,10 +16,8 @@ fetch(url)
     productContainer.innerHTML = "";
 
     data.forEach((product) => {
-      // Tjek om produkt er udsolgt
       let soldOutClass = product.soldout ? "udsolgt" : "";
 
-      // Tjek om produkt er nedsat
       let discountHTML = "";
 
       if (product.discount) {
