@@ -3,6 +3,11 @@ const productContainer = document.querySelector(".product_container");
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
+document.querySelector(".back_btn").addEventListener("click", goBack);
+function goBack() {
+  history.back();
+}
+
 fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
   .then((response) => response.json())
   .then((product) => {

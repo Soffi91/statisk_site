@@ -3,6 +3,11 @@ const productContainer = document.querySelector(".product_list_container");
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get("category");
 
+document.querySelector(".back_btn").addEventListener("click", goBack);
+function goBack() {
+  history.back();
+}
+
 let url = "https://kea-alt-del.dk/t7/api/products";
 
 if (category) {
